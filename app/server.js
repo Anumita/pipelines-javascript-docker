@@ -9,8 +9,7 @@ appInsights.setup("83eba91c-9953-4fbf-8267-cad4d4d1f397");
 appInsights.start();
 process.env['NODE_DEBUG'] = 'net,tls';
 
-let client = appInsights.getClient("83eba91c-9953-4fbf-8267-cad4d4d1f397");
-
+let client = appInsights.defaultClient
 function randomInt(low, high) {
   return Math.floor(Math.random() * (high - low) + low)
 }
@@ -19,12 +18,12 @@ const app = express();
 app.get('/', (req, res) => {
   if (randomInt(1, 100) > 30)
   {
-    client.trackMetric({name: "custom_status", value: "bad"});
+    client.trackMetric({name: "custom_status", value: 1});
     res.status(500).send('Internal Error\n');
   }
   else
   {
-    client.trackMetric({name: "custom_status", value: "good"});
+    client.trackMetric({name: "custom_status", value: 2});
     res.status(200).send('Hello world\n');
   }
 });
