@@ -7,6 +7,9 @@ const HOST = '0.0.0.0';
 
 appInsights.setup("83eba91c-9953-4fbf-8267-cad4d4d1f397");
 appInsights.start();
+process.env['NODE_DEBUG'] = 'net,tls';
+
+appInsights.enableVerboseLogging();
 let client = appInsights.defaultClient;
 
 function randomInt(low, high) {
