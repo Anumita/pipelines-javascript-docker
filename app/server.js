@@ -9,7 +9,6 @@ appInsights.setup("83eba91c-9953-4fbf-8267-cad4d4d1f397");
 appInsights.start();
 process.env['NODE_DEBUG'] = 'net,tls';
 
-appInsights.enableVerboseLogging();
 let client = appInsights.getClient("83eba91c-9953-4fbf-8267-cad4d4d1f397");
 
 function randomInt(low, high) {
