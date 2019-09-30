@@ -8,6 +8,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "applicationinsights": "^1.4.2",
     "express": "^4.16.4"
   }
 }
